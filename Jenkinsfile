@@ -56,14 +56,14 @@ pipeline {
             steps {
                 // Give the app a few seconds to start, then check that it responds
                 sh 'sleep 5'
-                sh "curl -f http://localhost:${APP_PORT} || (docker logs ${CONTAINER_NAME} && exit 1)"
+                sh "curl -f http://nodejs-demo-app:${APP_PORT} || (docker logs ${CONTAINER_NAME} && exit 1)"
             }
         }
     }
 
     post {
         success {
-            echo "Deployed ${IMAGE_NAME}:${IMAGE_TAG} at http://localhost:${APP_PORT}"
+            echo "Deployed ${IMAGE_NAME}:${IMAGE_TAG} at http://nodejs-demo-app:${APP_PORT}"
         }
         failure {
             echo 'Pipeline failed. Check the stage logs above.'
