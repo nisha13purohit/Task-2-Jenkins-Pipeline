@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Server Status Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="container">
+    <header>
+      <h1>🚀 Server Status Dashboard</h1>
+      <p class="subtitle">Deployed automatically with GitHub Actions &amp; Docker</p>
+      <span id="live" class="badge">● Connecting…</span>
+    </header>
+
+    <section class="grid">
+      <div class="card"><span class="label">Uptime</span><span class="value" id="uptime">–</span></div>
+      <div class="card"><span class="label">Node.js</span><span class="value" id="node">–</span></div>
+      <div class="card"><span class="label">CPU Load (1m)</span><span class="value" id="load">–</span></div>
+      <div class="card"><span class="label">CPU Cores</span><span class="value" id="cores">–</span></div>
+      <div class="card"><span class="label">Environment</span><span class="value" id="env">–</span></div>
+      <div class="card"><span class="label">Build / Commit</span><span class="value" id="commit">–</span></div>
+    </section>
+
+    <section class="card wide">
+      <div class="row"><span class="label">System Memory</span><span id="memText">–</span></div>
+      <div class="bar"><div id="memBar" class="fill"></div></div>
+      <div class="row small"><span>App process: <b id="appMem">–</b></span><span id="host">–</span></div>
+    </section>
+
+    <section class="card wide">
+      <span class="label">CI/CD Pipeline</span>
+      <div class="pipeline">
+        <div class="step">Push</div><div class="arrow">→</div>
+        <div class="step">Test</div><div class="arrow">→</div>
+        <div class="step">Docker Build</div><div class="arrow">→</div>
+        <div class="step">Deploy</div>
+      </div>
+    </section>
+
+    <footer>Last updated: <span id="updated">–</span></footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
